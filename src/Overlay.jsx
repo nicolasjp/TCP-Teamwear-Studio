@@ -18,7 +18,7 @@ export function Overlay() {
     <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
       <motion.header initial={{ opacity: 0, y: -100 }} animate={{ opacity: 1, y: 0 }} transition={transition}>
         {/* <Logo width="40" height="40" /> */}
-        <img src="../public/logoTCP.png" alt="logo" width="89.5" height="75.5" /> 
+        <img src="/logoTCP.png" alt="logo" width="89.5" height="75.5" /> 
         <motion.div animate={{ x: snap.intro ? 0 : 100, opacity: snap.intro ? 1 : 0 }} transition={transition}>
           <FaTshirt size="3em" color='white' />
         </motion.div>
