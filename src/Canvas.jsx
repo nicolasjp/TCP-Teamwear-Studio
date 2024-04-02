@@ -48,8 +48,8 @@ function CameraRig({ children }) {
 function Hoodie(props) {
   const snap = useSnapshot(state)
   // console.log(snap.decal);
-  const texture = useTexture(`/${snap.decal}.png`)
-  const { nodes, materials } = useGLTF('/hoodieV3bis.glb')
+  const texture = useTexture(`./${snap.decal}.png`)
+  const { nodes, materials } = useGLTF('./hoodieV3bis.glb')
   useFrame((state, delta) => easing.dampC(materials.colH.color, snap.color, 0.25, delta))
   return (
     <mesh position={[0, 0.03, 0]} scale={0.77} rotation={[0, -0.1, -0.01]} castShadow geometry={nodes.T_Shirt_male.geometry} material={materials.colH} material-roughness={1} {...props} dispose={null}>
@@ -90,8 +90,8 @@ function Hoodie(props) {
 // T Shirt
 function Shirt(props) {
   const snap = useSnapshot(state)
-  const texture = useTexture(`/${snap.decal}.png`)
-  const { nodes, materials } = useGLTF('/shirt_baked_collapsed.glb')
+  const texture = useTexture(`./${snap.decal}.png`)
+  const { nodes, materials } = useGLTF('./shirt_baked_collapsed.glb')
   useFrame((state, delta) => easing.dampC(materials.lambert1.color, snap.color, 0.25, delta))
   return (
     <mesh position={[0, 0.04, 0]} castShadow geometry={nodes.T_Shirt_male.geometry} material={materials.lambert1} material-roughness={1} {...props} dispose={null}>
@@ -115,5 +115,5 @@ function Shirt(props) {
 //   )
 // }
 
-useGLTF.preload('/shirtMod3.glb')
-;['/logoV1.png', '/logoV2.png', '/logoV3.png', '/logoV4.png'].forEach(useTexture.preload)
+// useGLTF.preload('./shirtMod3.glb')
+// ;['./logoV1.png', './logoV2.png', './logoV3.png', './logoV4.png'].forEach(useTexture.preload)
