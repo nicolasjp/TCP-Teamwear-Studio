@@ -115,5 +115,5 @@ function Shirt(props) {
 //   )
 // }
 
-// useGLTF.preload('./shirtMod3.glb')
-// ;['./logoV1.png', './logoV2.png', './logoV3.png', './logoV4.png'].forEach(useTexture.preload)
+useGLTF.preload('./shirtMod3.glb')
+;['./logoV1.png', './logoV2.png', './logoV3.png', './logoV4.png'].forEach(useTexture.preload)
