@@ -277,7 +277,7 @@ button:hover {
 
 .exit {
   position: absolute;
-  top: 40px;
+  top: 60px;
   right: 40px;
   background-color: black;
   box-shadow: inset 0 0 0 0.09px black;
@@ -289,7 +289,7 @@ button:hover {
 
 .switch {
   position: absolute;
-  top: 40px;
+  top: 60px;
   left: 170px;
   background-color: black;
   box-shadow: inset 0 0 0 0.09px black;
@@ -363,7 +363,7 @@ button:hover {
 
   .logo{
     width: 71.6px;
-    height: 60.4px;
+    height: 71.6px;
     margin-top: -20px;
     margin-left: -10px;
   }
