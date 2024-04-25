@@ -38,7 +38,7 @@ function CameraRig({ children }) {
   const group = useRef()
   const snap = useSnapshot(state)
   useFrame((state, delta) => {
-    easing.damp3(state.camera.position, [snap.intro ? -state.viewport.width / 4 : 0, 0, 2], 0.25, delta)
+    easing.damp3(state.camera.position, [snap.intro ? -state.viewport.width / 4 : 0, 0, 2.2], 0.25, delta)
     easing.dampE(group.current.rotation, [state.pointer.y / 10, -state.pointer.x / 5, 0], 0.25, delta)
   })
   return <group ref={group}>{children}</group>
@@ -116,4 +116,4 @@ function Shirt(props) {
 // }
 
 useGLTF.preload('./shirtMod3.glb')
-;['./logoV1.png', './logoV2.png', './logoV3.png', './logoV4.png'].forEach(useTexture.preload)
+;['./logoV5.png', './logoV1.png', './logoV2.png', './logoV3.png', './logoV4.png'].forEach(useTexture.preload)
