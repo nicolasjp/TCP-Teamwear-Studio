@@ -52,7 +52,7 @@ function Hoodie(props) {
   const { nodes, materials } = useGLTF('./hoodieV3bis.glb')
   useFrame((state, delta) => easing.dampC(materials.colH.color, snap.color, 0.25, delta))
   return (
-    <mesh position={[0, 0.03, 0]} scale={0.77} rotation={[0, -0.1, -0.01]} castShadow geometry={nodes.T_Shirt_male.geometry} material={materials.colH} material-roughness={1} {...props} dispose={null}>
+    <mesh position={[0, 0.03, 0]} scale={0.7} rotation={[0, -0.1, -0.01]} castShadow geometry={nodes.T_Shirt_male.geometry} material={materials.colH} material-roughness={1} {...props} dispose={null}>
       <Decal position={[0.11, 0.12, 0.24]} rotation={[0, 0, 0]} scale={0.22} map={texture} /*map-anisotropy={16}*/ />
     </mesh>
   )
@@ -94,7 +94,7 @@ function Shirt(props) {
   const { nodes, materials } = useGLTF('./shirt_baked_collapsed.glb')
   useFrame((state, delta) => easing.dampC(materials.lambert1.color, snap.color, 0.25, delta))
   return (
-    <mesh position={[0, 0.04, 0]} castShadow geometry={nodes.T_Shirt_male.geometry} material={materials.lambert1} material-roughness={1} {...props} dispose={null}>
+    <mesh position={[0, 0.04, 0]} scale={0.9} castShadow geometry={nodes.T_Shirt_male.geometry} material={materials.lambert1} material-roughness={1} {...props} dispose={null}>
       <Decal position={[-0.01, 0.04, 0.15]} rotation={[0, 0, 0]} scale={0.25} map={texture} /*map-anisotropy={16}*/ />
     </mesh>
   )
