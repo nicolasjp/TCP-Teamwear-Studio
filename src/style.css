@@ -330,7 +330,7 @@ button:hover {
     font-size: 10px;
     position: absolute;
     top: 88%;
-    left: 52%;
+    left: 5%;
     /* transform: translate(-50%, -50%); */
   }
 
@@ -340,7 +340,7 @@ button:hover {
     font-size: 10px;
     position: absolute;
     top: 88%;
-    left: 22%;
+    left: 50%;
     /* transform: translate(-50%, -50%); */
   }
 
@@ -355,9 +355,10 @@ button:hover {
   }
 
   .decals{
-    left: 2%;
     transform: scale(1);
-    margin-bottom: -20px;
+    position: absolute;
+    top: 20%;
+    left: 2%;
   }
 
   .logo{
