@@ -205,6 +205,10 @@ button:hover {
   margin-bottom: 20px;
 }
 
+.color-options .circle {
+  transition: transform 0.2s;  /* Ajoute une transition pour l'effet visuel */
+}
+
 .circle {
   width: 30px;
   height: 30px;
@@ -317,6 +321,12 @@ button:hover {
     top: 50%;
     right: 30px;
     transform: translateY(-50%);
+  }
+
+  .color-options .circle {
+    width: 25px;      /* Ajuste la largeur */
+    height: 25px;     /* Ajuste la hauteur */
+    transition: transform 0.2s;  /* Ajoute une transition pour l'effet visuel */
   }
 
   .support--content {

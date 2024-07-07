@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { useGLTF, useTexture, AccumulativeShadows, RandomizedLight, Decal, Environment, Center } from '@react-three/drei'
 import { easing } from 'maath'
@@ -50,9 +50,27 @@ function Hoodie(props) {
   // console.log(snap.decal);
   const texture = useTexture(`./${snap.decal}.png`)
   const { nodes, materials } = useGLTF('./hoodieV3bis.glb')
+
+  const [scale, setScale] = useState(0.7);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 600px)');
+    const handleMediaQueryChange = (event) => {
+      setScale(event.matches ? 0.5 : 0.7);
+    };
+    
+    // Set initial scale
+    handleMediaQueryChange(mediaQuery);
+    // Listen for media query changes
+    mediaQuery.addEventListener('change', handleMediaQueryChange);
+    
+    // Cleanup listener on component unmount
+    return () => mediaQuery.removeEventListener('change', handleMediaQueryChange);
+  }, []);
+  
   useFrame((state, delta) => easing.dampC(materials.colH.color, snap.color, 0.25, delta))
   return (
-    <mesh position={[0, 0.03, 0]} scale={0.7} rotation={[0, -0.1, -0.01]} castShadow geometry={nodes.T_Shirt_male.geometry} material={materials.colH} material-roughness={1} {...props} dispose={null}>
+    <mesh position={[0, 0.03, 0]} scale={scale} rotation={[0, -0.1, -0.01]} castShadow geometry={nodes.T_Shirt_male.geometry} material={materials.colH} material-roughness={1} {...props} dispose={null}>
       <Decal position={[0.11, 0.12, 0.24]} rotation={[0, 0, 0]} scale={0.22} map={texture} /*map-anisotropy={16}*/ />
     </mesh>
   )
@@ -92,9 +110,27 @@ function Shirt(props) {
   const snap = useSnapshot(state)
   const texture = useTexture(`./${snap.decal}.png`)
   const { nodes, materials } = useGLTF('./shirt_baked_collapsed.glb')
+
+  const [scale, setScale] = useState(0.9);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 600px)');
+    const handleMediaQueryChange = (event) => {
+      setScale(event.matches ? 0.75 : 0.9);
+    };
+    
+    // Set initial scale
+    handleMediaQueryChange(mediaQuery);
+    // Listen for media query changes
+    mediaQuery.addEventListener('change', handleMediaQueryChange);
+    
+    // Cleanup listener on component unmount
+    return () => mediaQuery.removeEventListener('change', handleMediaQueryChange);
+  }, []);
+
   useFrame((state, delta) => easing.dampC(materials.lambert1.color, snap.color, 0.25, delta))
   return (
-    <mesh position={[0, 0.04, 0]} scale={0.9} castShadow geometry={nodes.T_Shirt_male.geometry} material={materials.lambert1} material-roughness={1} {...props} dispose={null}>
+    <mesh position={[0, 0.04, 0]} scale={scale} castShadow geometry={nodes.T_Shirt_male.geometry} material={materials.lambert1} material-roughness={1} {...props} dispose={null}>
       <Decal position={[-0.01, 0.04, 0.15]} rotation={[0, 0, 0]} scale={0.25} map={texture} /*map-anisotropy={16}*/ />
     </mesh>
   )
